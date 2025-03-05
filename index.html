@@ -95,6 +95,7 @@
             background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+            transition: opacity 0.25s ease, visibility 0.25s ease;
         }
         .main-content {
             padding-top: 4rem;
@@ -191,6 +192,22 @@
 
         body.wip-mode .main-content {
             display: none;
+        }
+
+        /* Add styles for navbar transition */
+        .navbar-sticky {
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .navbar-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Update modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+            z-index: 1100; /* Ensure modal is above navbar */
         }
     </style>
 </head>
@@ -499,9 +516,28 @@
 
     <!-- JavaScript for mobile menu toggle and modals -->
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle and link handling
         document.querySelector('.mobile-menu-button').addEventListener('click', function() {
             document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu and hide navbar when clicking links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navbar = document.querySelector('.navbar-sticky');
+                
+                // Hide mobile menu
+                mobileMenu.classList.add('hidden');
+                
+                // Hide navbar temporarily
+                navbar.classList.add('navbar-hidden');
+                
+                // Show navbar after a short delay (after scrolling)
+                setTimeout(() => {
+                    navbar.classList.remove('navbar-hidden');
+                }, 800);
+            });
         });
 
         // Intersection Observer for fade-in animations
@@ -570,7 +606,7 @@
                 id: 'bonjoro-widget',
                 title: 'Bonjoro Web Widget',
                 logo: 'images/bonjoro-logo.png',
-                description: "The Bonjoro Web Widget is a ReactJS-based web component that can be embedded into HTML pages with the correct setup. It includes a bubble component as the initial call to action, a preview to display the user’s video message, and the main widget, which contains the video, message, call-to-action buttons, and a reply panel—creating an interactive and seamless video messaging experience.",
+                description: "The Bonjoro Web Widget is a ReactJS-based web component that can be embedded into HTML pages with the correct setup. It includes a bubble component as the initial call to action, a preview to display the user's video message, and the main widget, which contains the video, message, call-to-action buttons, and a reply panel—creating an interactive and seamless video messaging experience.",
                 image: 'images/bonjoro-widget/1.png',
                 tags: ['React.js', 'TypeScript', 'NodeJS', 'DynamoDB', 'SQS', 'Web Component', 'Shadow DOM', 'Tailwind CSS', 'PHP', 'JavaScript', 'MySQL'],
                 features: [
@@ -589,7 +625,7 @@
                 id: 'bonjoro-ui-library',
                 title: 'Bonjoro UI Component Library',
                 logo: 'images/bonjoro-logo.png',
-                description: "The Bonjoro UI Component Library is a custom-built library that provides generic, reusable components styled with Bonjoro’s unique theme. It ensures consistency and efficiency across all Bonjoro web platforms by standardizing the design and functionality of UI elements.",
+                description: "The Bonjoro UI Component Library is a custom-built library that provides generic, reusable components styled with Bonjoro's unique theme. It ensures consistency and efficiency across all Bonjoro web platforms by standardizing the design and functionality of UI elements.",
                 image: 'images/bonjoro-ui-component/1.png',
                 tags: ['React.js', 'TypeScript', 'Storybook', 'Tailwind CSS', 'PHP', 'JavaScript', 'MySQL'],
                 features: [
@@ -942,11 +978,15 @@
         function openProjectModal(projectId) {
             const modalId = `modal-${projectId}`;
             let modal = document.getElementById(modalId);
+            const navbar = document.querySelector('.navbar-sticky');
             
             if (!modal) {
                 generateProjectModal(projectId);
                 modal = document.getElementById(modalId);
             }
+            
+            // Hide navbar
+            navbar.classList.add('navbar-hidden');
             
             modal.classList.remove('opacity-0', 'pointer-events-none');
             document.body.classList.add('modal-active');
@@ -963,10 +1003,15 @@
 
         function closeModal(projectId) {
             const modal = document.getElementById(`modal-${projectId}`);
+            const navbar = document.querySelector('.navbar-sticky');
+            
             if (!modal) return;
             
             modal.classList.add('opacity-0', 'pointer-events-none');
             document.body.classList.remove('modal-active');
+            
+            // Show navbar
+            navbar.classList.remove('navbar-hidden');
         }
 
         // Initialize project cards when the page loads
