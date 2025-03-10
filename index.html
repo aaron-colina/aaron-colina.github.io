@@ -252,6 +252,9 @@
                         <a href="#about" class="border-transparent text-gray-300 hover:text-primary hover:border-primary/50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             About
                         </a>
+                        <a href="#skills" class="border-transparent text-gray-300 hover:text-primary hover:border-primary/50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Skills
+                        </a>
                         <a href="#projects" class="border-transparent text-gray-300 hover:text-primary hover:border-primary/50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Projects
                         </a>
@@ -278,6 +281,7 @@
             <div class="pt-2 pb-3 space-y-1">
                 <a href="#home" class="bg-primary/10 border-primary text-primary block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
                 <a href="#about" class="border-transparent text-gray-300 hover:bg-primary/5 hover:border-primary/50 hover:text-primary block pl-3 pr-4 py-2 border-l-4 text-base font-medium">About</a>
+                <a href="#skills" class="border-transparent text-gray-300 hover:bg-primary/5 hover:border-primary/50 hover:text-primary block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Skills</a>
                 <a href="#projects" class="border-transparent text-gray-300 hover:bg-primary/5 hover:border-primary/50 hover:text-primary block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Projects</a>
             </div>
         </div>
@@ -324,7 +328,7 @@
                 <div class="lg:text-center">
                     <h2 class="text-3xl font-extrabold tracking-tight gradient-text sm:text-4xl">About Me</h2>
                     <p class="mt-4 max-w-2xl text-xl text-gray-300 lg:mx-auto">
-                        With years of experience in software development, I specialize in building scalable and maintainable applications that solve real-world problems.
+                        Building scalable solutions with modern technologies and best practices.
                     </p>
                 </div>
                 <div class="mt-16">
@@ -335,7 +339,7 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">Full Stack Development</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Expert in modern web technologies, creating seamless applications from frontend to backend with a focus on performance and user experience.
+                                Modern web applications with focus on performance and user experience.
                             </p>
                         </div>
 
@@ -345,7 +349,7 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">AI Development Director</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Directing and integrating AI tools into development workflows, optimizing processes and creating innovative solutions through strategic AI implementation.
+                                Strategic AI integration for enhanced development workflows.
                             </p>
                         </div>
 
@@ -355,7 +359,7 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">Agile Leadership</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Experienced in leading Agile teams, facilitating sprints, and implementing efficient development processes that drive project success.
+                                Leading teams with agile methodologies for efficient delivery.
                             </p>
                         </div>
 
@@ -365,7 +369,7 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">Database Architecture</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Proficient in designing and optimizing database structures, ensuring scalability and performance in high-load environments.
+                                Scalable database solutions for high-performance systems.
                             </p>
                         </div>
 
@@ -375,7 +379,7 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">Cloud Solutions</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Experienced in cloud architecture and deployment, utilizing modern cloud platforms to build resilient and scalable applications.
+                                Robust cloud architectures for modern applications.
                             </p>
                         </div>
 
@@ -385,10 +389,27 @@
                             </div>
                             <p class="ml-16 text-lg leading-6 font-medium text-white">Security & Best Practices</p>
                             <p class="mt-2 ml-16 text-base text-gray-300">
-                                Committed to implementing secure coding practices and maintaining high code quality standards throughout the development lifecycle.
+                                Industry-standard security and quality assurance protocols.
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Expertise Section -->
+        <section id="skills" class="py-20 bg-black/30 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center mb-12">
+                    <p class="text-sm font-semibold tracking-wide text-primary uppercase">MY SKILLSET</p>
+                    <h2 class="mt-2 text-3xl font-extrabold tracking-tight gradient-text sm:text-4xl">Technical Expertise</h2>
+                    <p class="mt-4 max-w-2xl text-xl text-gray-300 lg:mx-auto">
+                        I've worked with a range of technologies in the web development world, from front-end to back-end and everything in between.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 skills-grid">
+                    <!-- Skills will be generated here -->
                 </div>
             </div>
         </section>
@@ -766,6 +787,107 @@
             },
         ];
 
+        // Projects Dataset
+        const skillsData = [
+            {
+                id: 'frontend',
+                title: 'Frontend Development',
+                icon: 'fa-code',
+                color: 'primary',
+                skills: [
+                    'React.js',
+                    'TypeScript',
+                    'JavaScript',
+                    'Tailwind CSS',
+                    'Next.js',
+                    'Vue.js',
+                    'HTML/CSS',
+                    'Bootstrap',
+                    'jQuery',
+                    'Web Components',
+                    'Shadow DOM'
+                ]
+            },
+            {
+                id: 'backend',
+                title: 'Backend Development',
+                icon: 'fa-server',
+                color: 'secondary',
+                skills: [
+                    'Laravel',
+                    'PHP',
+                    'Node.js',
+                    'Spring Boot',
+                    'Java',
+                    'CodeIgniter',
+                    'Drupal',
+                    'Symfony'
+                ]
+            },
+            {
+                id: 'database',
+                title: 'Database & Cloud',
+                icon: 'fa-database',
+                color: 'primary',
+                skills: [
+                    'MySQL',
+                    'MongoDB',
+                    'PostgreSQL',
+                    'DynamoDB',
+                    'AWS',
+                    'S3',
+                    'SQS',
+                    'EC3',
+                    'Firebase',
+                    'Cloud Architecture',
+                    'Microservices'
+                ]
+            },
+            {
+                id: 'tools',
+                title: 'Development Tools',
+                icon: 'fa-tools',
+                color: 'secondary',
+                skills: [
+                    'Git',
+                    'GitHub',
+                    'Redux',
+                    'Storybook',
+                    'CI/CD',
+                    'Jest',
+                    'TDD',
+                    'Agile/Scrum',
+                    'DevOps'
+                ]
+            },
+            {
+                id: 'design',
+                title: 'UI/UX Design',
+                icon: 'fa-paint-brush',
+                color: 'primary',
+                skills: [
+                    'Prototyping',
+                    'Responsive Design',
+                    'Design Systems'
+                ]
+            },
+            {
+                id: 'integration',
+                title: 'Integration & APIs',
+                icon: 'fa-plug',
+                color: 'secondary',
+                skills: [
+                    'RESTful APIs',
+                    'GraphQL',
+                    'OAuth',
+                    'CRM Integration',
+                    'Payment Gateways',
+                    'Third-party APIs',
+                    'Webhooks'
+                ]
+            }
+        ];
+
         // Helper function to truncate text
         function truncateText(text, limit) {
             if (text.length <= limit) return text;
@@ -792,6 +914,28 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Function to generate skills section
+        function generateSkillsSection() {
+            const skillsContainer = document.querySelector('.skills-grid');
+            if (!skillsContainer) return;
+
+            skillsContainer.innerHTML = skillsData.map(category => `
+                <div class="bg-black/20 backdrop-blur-sm border border-primary/10 rounded-xl p-8 hover:border-primary/30 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-${category.color} text-white">
+                            <i class="fas ${category.icon} text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">${category.title}</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        ${category.skills.map(skill => `
+                            <span class="px-4 py-2 bg-${category.color}/10 text-${category.color} rounded-lg">${skill}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
         }
 
         // Generate Project Cards
@@ -1016,18 +1160,24 @@
 
         // Initialize project cards when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            // Generate project cards first
-            generateProjectCards();
+            handleWIPMode();
             
-            // Initialize fade-in animations
-            document.querySelectorAll('.fade-in').forEach((element) => {
-                observer.observe(element);
-                // Make cards visible initially
-                element.classList.add('visible');
-            });
-            
-            // Start typing animation
-            setTimeout(type, newTextDelay);
+            if (!isWIPMode) {
+                // Generate skills section
+                generateSkillsSection();
+                
+                // Generate project cards
+                generateProjectCards();
+                
+                // Initialize fade-in animations
+                document.querySelectorAll('.fade-in').forEach((element) => {
+                    observer.observe(element);
+                    element.classList.add('visible');
+                });
+                
+                // Start typing animation
+                setTimeout(type, newTextDelay);
+            }
         });
 
         // Typing Animation
@@ -1092,23 +1242,6 @@
                 wipOverlay.classList.remove('active');
             }
         }
-
-        // Initialize WIP mode when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            handleWIPMode();
-            
-            if (!isWIPMode) {
-                // Only initialize the site features if not in WIP mode
-                generateProjectCards();
-                
-                document.querySelectorAll('.fade-in').forEach((element) => {
-                    observer.observe(element);
-                    element.classList.add('visible');
-                });
-                
-                setTimeout(type, newTextDelay);
-            }
-        });
     </script>
 </body>
 </html>
