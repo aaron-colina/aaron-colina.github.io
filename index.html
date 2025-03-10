@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script>
         tailwind.config = {
@@ -292,8 +293,8 @@
         <!-- Home Section -->
         <section id="home" class="min-h-screen flex items-center justify-center">
             <div class="home-content">
-                <div class="w-full lg:w-max flex flex-col lg:flex-row items-center justify-between">
-                    <div class="w-full lg:w-3/5 space-y-6">
+                <div class="w-full flex flex-col lg:flex-row items-center justify-between">
+                    <div class="w-full lg:w-3/5 space-y-6 lg:pr-12">
                         <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
                             <span class="block text-white">
                                 Hi there! I'm <span class="mb-5">Aaron</span>
@@ -304,14 +305,17 @@
                             </span>
                         </h1>
                         <p class="text-xl text-gray-300">
-                            Innovative full-stack web developer focused on creating intuitive, high-performance digital solutions. Passionate about problem-solving, continuous learning, and delivering exceptional user experiences.
+                            I turn complex ideas into clean, efficient code. With a passion for creating user-friendly web applications, I help businesses grow through innovative digital solutions.
+                        </p>
+                        <p class="text-xl text-gray-300">
+                            Ready to build something amazing? Let's connect!
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-start">
                             <a href="#projects" class="smooth-scroll inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-secondary hover:bg-secondary/90 transition-all duration-300">
                                 <i class="fas fa-code-branch mr-2"></i>See My Projects
                             </a>
-                            <a href="#about" class="smooth-scroll inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-base font-medium rounded-lg text-white hover:bg-primary/10 transition-all duration-300">
-                                <i class="fas fa-user-circle mr-2"></i>About Me
+                            <a href="mailto:aaroncolina@gmail.com" class="smooth-scroll inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-base font-medium rounded-lg text-white hover:bg-primary/10 transition-all duration-300">
+                                <i class="fas fa-paper-plane mr-2"></i>Let's Collaborate
                             </a>
                         </div>
                     </div>
@@ -921,6 +925,70 @@
             const skillsContainer = document.querySelector('.skills-grid');
             if (!skillsContainer) return;
 
+            // Skill icons mapping
+            const skillIcons = {
+                // Frontend
+                'React.js': 'fab fa-react',
+                'TypeScript': 'devicon-typescript-plain',
+                'JavaScript': 'fab fa-js',
+                'Tailwind CSS': 'devicon-tailwindcss-plain',
+                'Next.js': 'devicon-nextjs-plain',
+                'Vue.js': 'fab fa-vuejs',
+                'HTML/CSS': 'fab fa-html5',
+                'Bootstrap': 'fab fa-bootstrap',
+                'jQuery': 'devicon-jquery-plain',
+                'Web Components': 'fas fa-cube',
+                'Shadow DOM': 'fas fa-clone',
+                
+                // Backend
+                'Laravel': 'fab fa-laravel',
+                'PHP': 'fab fa-php',
+                'Node.js': 'fab fa-node-js',
+                'Spring Boot': 'fas fa-leaf',
+                'Java': 'fab fa-java',
+                'CodeIgniter': 'fas fa-fire',
+                'Drupal': 'fab fa-drupal',
+                'Symfony': 'fab fa-symfony',
+                
+                // Database & Cloud
+                'MySQL': 'fas fa-database',
+                'MongoDB': 'fas fa-leaf',
+                'PostgreSQL': 'fas fa-database',
+                'DynamoDB': 'fab fa-aws',
+                'AWS': 'fab fa-aws',
+                'S3': 'fab fa-aws',
+                'SQS': 'fab fa-aws',
+                'EC3': 'fab fa-aws',
+                'Firebase': 'fas fa-fire',
+                'Cloud Architecture': 'fas fa-cloud',
+                'Microservices': 'fas fa-network-wired',
+                
+                // Development Tools
+                'Git': 'fab fa-git-alt',
+                'GitHub': 'fab fa-github',
+                'Redux': 'fas fa-code-branch',
+                'Storybook': 'fas fa-book',
+                'CI/CD': 'fas fa-sync',
+                'Jest': 'fas fa-vial',
+                'TDD': 'fas fa-check-double',
+                'Agile/Scrum': 'fas fa-tasks',
+                'DevOps': 'fas fa-infinity',
+                
+                // Design
+                'Prototyping': 'fas fa-pencil-ruler',
+                'Responsive Design': 'fas fa-mobile-alt',
+                'Design Systems': 'fas fa-palette',
+                
+                // Integration & APIs
+                'RESTful APIs': 'fas fa-plug',
+                'GraphQL': 'fas fa-project-diagram',
+                'OAuth': 'fas fa-key',
+                'CRM Integration': 'fas fa-handshake',
+                'Payment Gateways': 'fas fa-credit-card',
+                'Third-party APIs': 'fas fa-puzzle-piece',
+                'Webhooks': 'fas fa-exchange-alt'
+            };
+
             skillsContainer.innerHTML = skillsData.map(category => `
                 <div class="bg-black/20 backdrop-blur-sm border border-primary/10 rounded-xl p-8 hover:border-primary/30 transition-all duration-300">
                     <div class="flex items-center gap-4 mb-6">
@@ -931,7 +999,10 @@
                     </div>
                     <div class="flex flex-wrap gap-3">
                         ${category.skills.map(skill => `
-                            <span class="px-4 py-2 bg-${category.color}/10 text-${category.color} rounded-lg">${skill}</span>
+                            <span class="px-4 py-2 bg-${category.color}/10 text-${category.color} rounded-lg flex items-center gap-2">
+                                <i class="${skillIcons[skill] || 'fas fa-code'} text-sm"></i>
+                                ${skill}
+                            </span>
                         `).join('')}
                     </div>
                 </div>
@@ -944,6 +1015,37 @@
             const DESCRIPTION_LIMIT = 180;
             const VISIBLE_TAGS = 3;
             
+            // Technology icons mapping
+            const techIcons = {
+                'React.js': 'fab fa-react',
+                'TypeScript': 'devicon-typescript-plain',
+                'JavaScript': 'fab fa-js',
+                'Laravel': 'fab fa-laravel',
+                'Tailwind CSS': 'devicon-tailwindcss-plain',
+                'AWS': 'fab fa-aws',
+                'MySQL': 'fas fa-database',
+                'Next.js': 'devicon-nextjs-plain',
+                'S3': 'fab fa-aws',
+                'NodeJS': 'fab fa-node-js',
+                'DynamoDB': 'fab fa-aws',
+                'SQS': 'fab fa-aws',
+                'Web Component': 'fas fa-cube',
+                'Shadow DOM': 'fas fa-clone',
+                'PHP': 'fab fa-php',
+                'Storybook': 'fas fa-book',
+                'AdminLTE': 'fas fa-palette',
+                'Redux': 'fas fa-code-branch',
+                'BambooHR': 'fas fa-users',
+                'Drupal': 'fab fa-drupal',
+                'CSS': 'fab fa-css3-alt',
+                'CodeIgniter': 'fas fa-fire',
+                'Bootstrap': 'fab fa-bootstrap',
+                'jQuery': 'devicon-jquery-plain',
+                'Spring Boot': 'fas fa-leaf',
+                'Java': 'fab fa-java',
+                'Symfony': 'fab fa-symfony'
+            };
+            
             carousel.innerHTML = '';
             
             projectsData.forEach(project => {
@@ -953,10 +1055,16 @@
                 const visibleTags = project.tags.slice(0, VISIBLE_TAGS);
                 const remainingTags = project.tags.length - VISIBLE_TAGS;
                 const tagsDisplay = visibleTags.map(tag => 
-                    `<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">${tag}</span>`
+                    `<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm flex items-center gap-1">
+                        <i class="${techIcons[tag] || 'fas fa-code'} text-xs"></i>
+                        ${tag}
+                    </span>`
                 ).join('');
                 const remainingTagsDisplay = remainingTags > 0 ? 
-                    `<span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">+${remainingTags} more</span>` : '';
+                    `<span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm flex items-center gap-1">
+                        <i class="fas fa-plus text-xs"></i>
+                        +${remainingTags} more
+                    </span>` : '';
 
                 card.innerHTML = `
                     <div class="relative">
